@@ -26,7 +26,8 @@
                     <td>{{ count($event->users) }}</td>
                     <td>
                         <a href="/events/edit/{{ $event->id }}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon> Editar</a> 
-                        <form action="/events/{{ $event->id }}" method="POST">
+                        <form action="/events/{{ $event->id }}" method="POST"
+                            onsubmit="return confirm('Tem certeza que deseja deletar este evento?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline"></ion-icon> Deletar</button>
